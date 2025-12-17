@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopee Auto Cart</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body>
+  <!-- 悬浮面板容器 -->
+  <div id="shopee-auto-cart-panel" class="floating-panel">
+    <!-- 标题栏 - 可拖拽区域 -->
+    <div class="panel-header" id="panel-header">
+      <span class="panel-title">🛒 Shopee Auto Cart</span>
+      <div class="header-buttons">
+        <button id="minimize-btn" class="icon-btn" title="最小化">−</button>
+        <button id="expand-btn" class="icon-btn hidden" title="展开">+</button>
+      </div>
+    </div>
+
+    <!-- 面板内容区域 -->
+    <div class="panel-content" id="panel-content">
+      <!-- 关键词输入区域 -->
+      <div class="input-group">
+        <label for="keyword-input">搜索关键词</label>
+        <input type="text" id="keyword-input" placeholder="输入商品关键词...">
+      </div>
+
+      <!-- 控制按钮区域 -->
+      <div class="button-group">
+        <button id="start-btn" class="btn btn-primary">▶ 开始</button>
+        <button id="stop-btn" class="btn btn-danger" disabled>■ 停止</button>
+      </div>
+
+      <!-- 状态显示 -->
+      <div class="status-bar">
+        <span class="status-label">状态:</span>
+        <span id="status-text" class="status-text status-idle">空闲</span>
+      </div>
+
+      <!-- 日志显示区域 -->
+      <div class="log-section">
+        <div class="log-header">
+          <span>任务日志</span>
+          <button id="clear-log-btn" class="btn-small">清除</button>
+        </div>
+        <div id="log-area" class="log-area">
+          <!-- 日志条目将动态添加到这里 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 最小化状态的图标 -->
+  <div id="minimized-icon" class="minimized-icon hidden">
+    <span>🛒</span>
+  </div>
+
+  <script src="ui.js"></script>
+</body>
+</html>

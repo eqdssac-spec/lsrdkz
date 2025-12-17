@@ -1,0 +1,457 @@
+/* Shopee Auto Cart - 悬浮面板样式 */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 悬浮面板容器 */
+.floating-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 320px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 标题栏 - 拖拽区域 */
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #ee4d2d 0%, #ff6633 100%);
+  color: white;
+  cursor: move;
+  user-select: none;
+}
+
+.panel-title {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* 面板内容区域 */
+.panel-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 关键词显示区域 */
+.keyword-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.keyword-label {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.keyword-value {
+  font-size: 14px;
+  color: #ee4d2d;
+  font-weight: 600;
+}
+
+/* 输入组 */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.input-group input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #ee4d2d;
+  box-shadow: 0 0 0 3px rgba(238, 77, 45, 0.1);
+}
+
+/* 按钮组 */
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #ee4d2d;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #d73211;
+}
+
+.btn-danger {
+  background: #666;
+  color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #555;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 状态栏 */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+
+.status-label {
+  color: #666;
+  font-size: 13px;
+}
+
+.status-text {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.status-idle {
+  color: #999;
+}
+
+.status-running {
+  color: #52c41a;
+}
+
+.status-paused {
+  color: #faad14;
+}
+
+.status-error {
+  color: #ff4d4f;
+}
+
+/* 日志区域 */
+.log-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.log-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-small {
+  padding: 4px 10px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-small:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+.log-area {
+  height: 180px;
+  overflow-y: auto;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 8px;
+  font-family: 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+}
+
+/* 日志条目样式 */
+.log-entry {
+  padding: 4px 8px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.log-entry:last-child {
+  margin-bottom: 0;
+}
+
+.log-entry .timestamp {
+  color: #999;
+  margin-right: 8px;
+}
+
+.log-info {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.log-success {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.log-warning {
+  background: #fffbe6;
+  color: #faad14;
+}
+
+.log-error {
+  background: #fff2f0;
+  color: #ff4d4f;
+}
+
+/* 滚动条样式 */
+.log-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.log-area::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 3px;
+}
+
+.log-area::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.log-area::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* 最小化图标 */
+.minimized-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #ee4d2d 0%, #ff6633 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999999;
+  box-shadow: 0 4px 12px rgba(238, 77, 45, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 20px;
+}
+
+.minimized-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(238, 77, 45, 0.5);
+}
+
+/* 隐藏类 */
+.hidden {
+  display: none !important;
+}
+
+/* 拖拽时的样式 */
+.floating-panel.dragging {
+  opacity: 0.9;
+  cursor: move;
+}
+
+/* 最小化状态的面板 */
+.floating-panel.minimized .panel-content {
+  display: none;
+}
+
+.floating-panel.minimized {
+  width: auto;
+}
+
+
+/* 关于按钮区域 */
+.about-section {
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+}
+
+.btn-about {
+  padding: 6px 16px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #666;
+}
+
+.btn-about:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+  color: #333;
+}
+
+/* 关于对话框 */
+.about-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999;
+}
+
+.about-modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 320px;
+  max-width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.about-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #ee4d2d 0%, #ff6633 100%);
+  color: white;
+}
+
+.about-modal-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.about-close-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition: background 0.2s;
+}
+
+.about-close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.about-modal-body {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.about-modal-body p {
+  margin-bottom: 10px;
+}
+
+.about-warning {
+  color: #ff4d4f;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.about-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 16px 0;
+}
+
+.about-author {
+  color: #ee4d2d;
+  font-weight: 600;
+}
+
+.about-version {
+  color: #999;
+  font-size: 13px;
+}
